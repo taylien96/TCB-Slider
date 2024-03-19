@@ -19,6 +19,7 @@ function nextSlide() {
   console.log(list)
   if(slideNumber === list.length-1){
     document.getElementById("slider-container").remove()
+    slideNumber = 0
   }else{
   slideNumber++;
   let img = document.getElementById("slider-image")
@@ -30,6 +31,7 @@ function nextSlide() {
 
 function exitSlide(){
   document.getElementById("slider-container").remove()
+  slideNumber = 0
 }
 
 function createSlider() {
