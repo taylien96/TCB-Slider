@@ -1,7 +1,6 @@
 let slideNumber = 0;
 function prevSlide() {
   let list = document.getElementsByClassName("fixed-ratio-content")
-  console.log(list)
   if(slideNumber === 0){
     document.getElementById("slider-container").remove()
   }
@@ -10,13 +9,11 @@ function prevSlide() {
   let img = document.getElementById("slider-image")
   let src = list[slideNumber].getAttribute("src")
   img.setAttribute("src", src); 
-  console.log("Previous Slide:", slideNumber);
   }
 }
 
 function nextSlide() {
   let list = document.getElementsByClassName("fixed-ratio-content")
-  console.log(list)
   if(slideNumber === list.length-1){
     document.getElementById("slider-container").remove()
     slideNumber = 0
@@ -25,7 +22,6 @@ function nextSlide() {
   let img = document.getElementById("slider-image")
   let src = list[slideNumber].getAttribute("src")
   img.setAttribute("src", src); 
-  console.log("Next Slide:", slideNumber);
   }
 }
 
@@ -116,11 +112,6 @@ function createSlider() {
   slider.appendChild(prevButton);
   slider.appendChild(image);
   slider.appendChild(nextButton);
-  
-
-
-
-
 
   document.body.appendChild(slider);
 }
@@ -128,7 +119,6 @@ function createSlider() {
 
 function createSliderButton(){
 let div = document.getElementsByClassName("flex items-center justify-center my-6 gap-2 text-sm font-bold")
-console.log("hi", div)
 let button = document.createElement("button")
 button.setAttribute("class", "justify-center bg-purple text-white hover:text-white rounded px-3 py-1")
 button.addEventListener("click", createSlider);
