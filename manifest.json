@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "TCB Scan Slider",
+    "version": "1.0",
+    "description": "Creates a slider for the TCB website.",
+    "permissions": [
+      "activeTab"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["https://tcbscans.com/chapters/*"],
+        "js": ["content.js"]
+      }
+    ]
+  }
+  
