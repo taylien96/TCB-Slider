@@ -142,5 +142,5 @@ function createSliderButton(){
   div[0].appendChild(button)
 }
 
-window.addEventListener('load', createSliderButton()
+window.addEventListener('DOMContentLoaded', createSliderButton()
   )
