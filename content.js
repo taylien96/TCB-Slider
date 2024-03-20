@@ -30,9 +30,10 @@ function exitSlide(){
   slideNumber = 0
 }
 
-function createSlider() {
+function createSlider(slide = 0) {
+  slideNumber = slide
   let list = document.getElementsByClassName("fixed-ratio-content");
-  let src = list[0].getAttribute("src")
+  let src = list[slide].getAttribute("src")
   let slider = document.createElement("div");
   
   slider.setAttribute("id", "slider-container");
@@ -118,12 +119,27 @@ function createSlider() {
   
 
 function createSliderButton(){
-let div = document.getElementsByClassName("flex items-center justify-center my-6 gap-2 text-sm font-bold")
-let button = document.createElement("button")
-button.setAttribute("class", "justify-center bg-purple text-white hover:text-white rounded px-3 py-1")
-button.addEventListener("click", createSlider);
-button.textContent = "Slide"
-div[0].appendChild(button)
+  let list = document.getElementsByClassName("fixed-ratio-content")
+  for(let i=0; i < list.length; i++){
+    list[i].addEventListener("click", function(){
+      createSlider(i)
+    }, true);
+    list[i].addEventListener("mouseover", function() {
+      this.style.cursor = "pointer";
+    });
+    list[i].addEventListener("mouseout", function() {
+      this.style.cursor = "default";
+    });
+  
+  }
+  let div = document.getElementsByClassName("flex items-center justify-center my-6 gap-2 text-sm font-bold")
+  let button = document.createElement("button")
+  button.setAttribute("class", "justify-center bg-purple text-white hover:text-white rounded px-3 py-1")
+  button.addEventListener("click", function(){
+    createSlider(0)
+  });
+  button.textContent = "Slide"
+  div[0].appendChild(button)
 }
 
 window.addEventListener('load', createSliderButton()
